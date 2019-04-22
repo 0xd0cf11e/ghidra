@@ -77,7 +77,11 @@ try:
 		while len(params) < 3 :
 			inst = getInstructionBefore(inst)
 			if "PUSH" in inst.toString():
-				params.append(getInt(inst.getAddress().add(1)))
+				addr = inst.getAddress()
+				if getByte(addr) == 0x68:
+					params.append(getInt(addr.add(1)))
+				else:
+					params.append(getByte(addr.add(1)))
 				print inst.toString()
 
 		listing = currentProgram.getListing()
