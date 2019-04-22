@@ -5,6 +5,10 @@
 #@menupath
 #@toolbar
 
+"""
+	This scripts decodes strings encrypted in Emotet's binary.
+"""
+
 import struct
 
 print "Start Decoding!"
